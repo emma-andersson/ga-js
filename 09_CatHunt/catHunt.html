@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Hunt</title>
+  <style>
+    .playing {
+      cursor: crosshair;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      background: yellow;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .walking-cat {
+      position: absolute;
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .walking-cat[data-dir="left"] {
+      transform: scaleX(-1);
+    }
+
+    .dead {
+      transition: opacity .5s;
+      opacity: 0;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      font-family: impact;
+      font-size: 4em;
+      margin-bottom: 0.3em;
+    }
+
+    button {
+      font-family: impact;
+      font-size: 2em;
+      text-transform: uppercase;
+      padding: 0.2em 1em;
+    }
+
+    .log {
+      background: white;
+      color: #eee;
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      font-family: monospace;
+      text-align: left;
+      width: 22em;
+    }
+
+    .log p:nth-last-child(3) {
+      color: #b3b3b3;
+    }
+
+    .log p:nth-last-child(2) {
+      color: #5e5d5d;
+    }
+
+    .log p:last-child {
+      color: #000;
+    }
+
+    .log p {
+      padding: .5em 1em;
+      margin: 0;
+    }
+
+    @keyframes intro {
+      0% {
+        transform: scale(.2);
+      }
+
+      80% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .info {
+      transform: opacity .3;
+      animation-name: intro;
+      animation-duration: 1s;
+      animation-direction: forward;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="info">
+    <h1>Cat Hunt</h1>
+    <button>Play</button>
+  </div>
+  <img src="http://www.anniemation.com/clip_art/images/cat-walk.gif" data-dir="left" height="150" width="150" class="walking-cat" />
+  <div class="log">
+  </div>
+  <script src="catHunt.js"></script>
+</body>
+
+</html>
