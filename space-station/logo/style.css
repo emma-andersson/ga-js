@@ -1,0 +1,111 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background: #000;
+  /* display: flex; */
+  text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+svg {
+  /* transform: scale(0); */
+  transition: transform 1s;
+  width: 70%;
+  height: auto;
+}
+
+svg circle {
+  /* opacity: 0; */
+}
+svg path {
+  /* opacity: 0; */
+  /* transition: opacity 2s ease-in-out 0.5s; */
+}
+
+.stars path:nth-child(even),
+.stars circle:nth-child(even) {
+  animation: fadeInOut;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.stars path:nth-child(odd),
+.stars circle:nth-child(odd) {
+  animation: fadeInOut2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.stars,
+.bg,
+.swirl,
+.loop {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.animation-finished .stars,
+.animation-finished .bg,
+.animation-finished .swirl,
+.animation-finished .loop {
+  opacity: 1;
+}
+
+.animation-finished .swirl {
+  fill: #222;
+}
+.animation-finished .loop {
+  fill: grey;
+}
+
+.animation-finished .bg {
+  fill: #0e1626;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut2 {
+  0% {
+    opacity: 0.4;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.letter {
+  fill: transparent;
+  stroke: #fff;
+  opacity: 0;
+  stroke-width: 1;
+  transition: stroke-dashoffset 1s, fill 1s, stroke 1s;
+}
+
+.fill-letters .letter {
+  stroke: transparent;
+  fill: #fff;
+}
+
+.play {
+  /* transform: scale(2.5); */
+}
+.play g {
+  /* opacity: 1; */
+}
